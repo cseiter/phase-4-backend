@@ -8,6 +8,7 @@
 
 Room.delete_all
 Category.delete_all
+Condition.delete_all
 
 Room.create!(room: "Living Room")
 Room.create!(room: "Kitchen")
@@ -16,3 +17,8 @@ Room.create!(room: "Office")
 Category.create!(category: "Game Systems")
 Category.create!(category: "Appliances")
 Category.create!(category: "Furniture")
+
+Condition.create!(condition: "Still In Package")
+Condition.create!(condition: "Open Unused")
+Condition.create!(condition: "Open Used")
+Condition.create!(condition: "Broken")
