@@ -7,7 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Room.delete_all
+Category.delete_all
 
 Room.create!(room: "Living Room")
 Room.create!(room: "Kitchen")
 Room.create!(room: "Office")
+
+Category.create!(category: "Game Systems")
+Category.create!(category: "Appliances")
+Category.create!(category: "Furniture")
