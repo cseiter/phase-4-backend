@@ -34,8 +34,12 @@ ActiveRecord::Schema.define(version: 2021_09_10_222528) do
     t.string "serial_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_items_on_category_id"
+    t.bigint "categories_id"
+    t.bigint "conditions_id"
+    t.bigint "rooms_id"
+    t.index ["categories_id"], name: "index_items_on_categories_id"
+    t.index ["conditions_id"], name: "index_items_on_conditions_id"
+    t.index ["rooms_id"], name: "index_items_on_rooms_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -44,5 +48,7 @@ ActiveRecord::Schema.define(version: 2021_09_10_222528) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "items", "categories"
+  add_foreign_key "items", "categories", column: "categories_id"
+  add_foreign_key "items", "conditions", column: "conditions_id"
+  add_foreign_key "items", "rooms", column: "rooms_id"
 end
