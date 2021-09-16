@@ -25,7 +25,7 @@ class Application
         end
       end
 
-      #Room Update
+=begin       #Room Update
       if req.path.match('/rooms/') && req.patch?
         room_id = req.path.split('/')[2]
         body = JSON.parse(req.body.read)
@@ -44,7 +44,7 @@ class Application
             [{message: "unable to update room."}.to_json]
           ]
         end
-      end
+      end =end
 
       #Category Update
       if req.path.match('/categories/') && req.patch?
@@ -87,7 +87,7 @@ class Application
         end
       end
 
-      #Room Delete
+=begin       #Room Delete
       if req.path.match('/rooms/') && req.delete?
         room_id = req.path.split('/')[2]
         begin
@@ -105,7 +105,7 @@ class Application
             [{message: "unable to delete room."}.to_json]
           ]
         end
-      end
+      end =end
 
       #Category Delete
       if req.path.match('/categories/') && req.delete?
@@ -139,7 +139,7 @@ class Application
         res.write "Path not found"
       end
 
-      #show all rooms
+=begin       #show all rooms
       if req.path == '/rooms' && req.get?
         all_rooms = Room.all
         return [
@@ -149,7 +149,7 @@ class Application
         ]
       else
         res.write "Path not found"
-      end
+      end =end
 
       #show all categories
       if req.path == '/categories' && req.get?
@@ -184,7 +184,7 @@ class Application
         res.write "item not found."
       end
 
-      #show single room by index
+=begin       #show single room by index
       if req.path.match('/rooms/') && req.get?
         room_id = req.path.split('/')[2]
         begin
@@ -203,7 +203,7 @@ class Application
         end
         else
         res.write "room not found."
-      end
+      end =end
 
       #show single category by index
       if req.path.match('/categories/') && req.get?
@@ -237,7 +237,7 @@ class Application
         ]
       end
 
-      #add room to database
+=begin       #add room to database
       if req.path.match(/rooms/) && req.post?
         body = JSON.parse(req.body.read)
         add_room = Room.create(body)
@@ -246,7 +246,7 @@ class Application
           {'Content-Type' => 'application/json'},
           [add_room.to_json]
         ]
-      end
+      end =end
 
       #add item to database
       if req.path.match(/categories/) && req.post?
